@@ -12,10 +12,32 @@ func MaxValue[T Ordered](slice []T) T {
 	return max
 }
 
+func MinValue[T Ordered](slice []T) T {
+	min := slice[0]
+
+	for _, item := range slice {
+		if item < min {
+			min = item
+		}
+	}
+
+	return min
+}
+
 func Sum[T Addable](slice []T) (sum T) {
 	for _, value := range slice {
 		sum += value
 	}
 
 	return
+}
+
+func ExistsInSlice[T comparable](haystack []T, needle T) bool {
+	for _, item := range haystack {
+		if item == needle {
+			return true
+		}
+	}
+
+	return false
 }
