@@ -3,6 +3,7 @@ package util
 import (
 	"io"
 	"os"
+	"strings"
 )
 
 func MustInputBytes(path string) []byte {
@@ -21,4 +22,8 @@ func MustInputBytes(path string) []byte {
 
 func MustInputString(path string) string {
 	return string(MustInputBytes(path))
+}
+
+func MustInputLines(path string) []string {
+	return strings.Split(MustInputString(path), "\n")
 }
