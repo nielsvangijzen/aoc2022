@@ -41,3 +41,13 @@ func ExistsInSlice[T comparable](haystack []T, needle T) bool {
 
 	return false
 }
+
+func Unique[T comparable](haystack []T) bool {
+	set := map[T]int{}
+
+	for _, value := range haystack {
+		set[value] += 1
+	}
+
+	return len(set) == len(haystack)
+}
